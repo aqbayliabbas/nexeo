@@ -1,10 +1,12 @@
 'use client';
 import React from "react";
 import { motion } from "framer-motion";
+import SplineEmbed from './SplineEmbed';
 
 export default function Header() {
   return (
     <section style={{
+      position: 'relative',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -12,9 +14,14 @@ export default function Header() {
       padding: '36px 16px 0 16px',
       minHeight: '60vh',
       textAlign: 'center',
-      position: 'relative',
       overflow: 'hidden',
     }}>
+      {/* Spline 3D background */}
+      <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none' }}>
+        <SplineEmbed />
+      </div>
+      <div style={{ position: 'relative', zIndex: 1 }}>
+
 
       <motion.span
         initial={{ opacity: 0, y: 30 }}
@@ -73,12 +80,8 @@ export default function Header() {
         transition={{ duration: 0.7, delay: 0.5 }}
         style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 32 }}
       >
-        <a
-          href="https://www.nexeo.site/dzairmarket/nexeo?fbclid=PAZXh0bgNhZW0CMTEAAafrsT_VVCakSFZqPqjVyMuwTkA-1Gy3FwmM_anKBXY_VZ3FzKVF3m_ZcQNDnw_aem_YQt7nF_7GlwBM77e0Am8aQ"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
           style={{
-            display: 'inline-block',
             background: 'rgba(34,52,110,0.38)',
             color: '#fff',
             fontWeight: 700,
@@ -92,14 +95,12 @@ export default function Header() {
             WebkitBackdropFilter: 'blur(8px)',
             letterSpacing: '0.01em',
             transition: 'background 0.18s, box-shadow 0.18s',
-            textDecoration: 'none',
-            textAlign: 'center',
           }}
           onMouseOver={e => (e.currentTarget.style.background = 'rgba(34,52,110,0.60)')}
           onMouseOut={e => (e.currentTarget.style.background = 'rgba(34,52,110,0.38)')}
         >
           Obtenez votre carte NFC
-        </a>
+        </button>
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -112,7 +113,7 @@ export default function Header() {
           marginTop: '1px',
         }}
       >
-        <motion.img
+        {/* <motion.img
           src="/header-img.png"
           alt="Aperçu de l'application Chat Sync"
           initial={{ opacity: 0, y: 50 }}
@@ -123,7 +124,7 @@ export default function Header() {
             width: '100%',
             borderRadius: '32px',
           }}
-        />
+        /> */}
       </motion.div>
       <div
         style={{
@@ -138,6 +139,7 @@ export default function Header() {
           pointerEvents: 'none',
         }}
       />
+      </div>
     </section>
   );
 }
