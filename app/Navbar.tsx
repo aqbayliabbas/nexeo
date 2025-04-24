@@ -129,8 +129,14 @@ export default function Navbar() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.7, duration: 0.3 }}
-        style={{ fontWeight: 700, fontSize: '1.5rem', color: '#fff', textDecoration: 'none', zIndex: 1003 }}
-      >nexeo</motion.a>
+        style={{ display: 'flex', alignItems: 'center', zIndex: 1003 }}
+      >
+        <img
+          src="/nexeo.png"
+          alt="Nexeo Logo"
+          style={{ height: '18px', width: 'auto', objectFit: 'contain' }}
+        />
+      </motion.a>
 
       {/* Right section: hamburger, links, CTA */}
       <div style={rightSectionStyle}>

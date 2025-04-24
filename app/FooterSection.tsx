@@ -21,8 +21,12 @@ export default function FooterSection() {
         WebkitBackdropFilter: 'blur(10px)',
       }}
     >
-      <div style={{ fontWeight: 700, fontSize: 22, letterSpacing: 1, color: '#fff' }}>NEXEO</div>
-      <div style={{ opacity: 0.8 }}>Révolutionner le networking avec la technologie NFC.</div>
+      <img
+        src="/nexeo.png"
+        alt="Nexeo Logo"
+        style={{ height: '18px', width: 'auto', objectFit: 'contain', marginBottom: 6 }}
+      />
+      <div style={{ opacity: 0.8, padding: '0 18px' }}>Révolutionner le networking avec la technologie NFC.</div>
       <span style={{ color: '#fff', opacity: 0.7, fontSize: 14 }}>
         &copy; {new Date().getFullYear()} Nexeo. Tous droits réservés.
       </span>
@@ -31,6 +35,28 @@ export default function FooterSection() {
         <a href="https://nexeo.tech" target="_blank" rel="noopener noreferrer" style={{ color: '#e7eaf3', textDecoration: 'none', fontWeight: 500 }}>Site web</a>
         <a href="#" style={{ color: '#e7eaf3', textDecoration: 'none', fontWeight: 500 }}>Confidentialité</a>
       </div>
+      {/* Responsive center alignment for mobile */}
+      <style>{`
+        @media (max-width: 900px) {
+          footer, footer > div, footer > span, footer > img {
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            display: flex !important;
+            flex-direction: column !important;
+          }
+          footer > div[style*='display: flex'] {
+            flex-direction: column !important;
+            gap: 10px !important;
+          }
+          footer > div[style*='opacity: 0.8'] {
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+          }
+        }
+      `}</style>
     </footer>
   );
 }
