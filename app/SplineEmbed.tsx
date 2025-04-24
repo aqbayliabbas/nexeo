@@ -35,18 +35,21 @@ const SplineEmbed = () => {
 
   return (
     <spline-viewer
+      ref={(ref: HTMLElement | null) => {
+        if (ref) {
+          const isMobile = window.innerWidth <= 600;
+          ref.style.width = isMobile ? '160vw' : '120vw';
+          ref.style.height = isMobile ? '160vh' : '120vh';
+          ref.style.position = 'absolute';
+          ref.style.left = '50%';
+          ref.style.top = '50%';
+          ref.style.transform = 'translate(-50%, -50%)';
+          ref.style.background = 'transparent';
+          ref.style.pointerEvents = 'none';
+        }
+      }}
       url="https://prod.spline.design/mGrwVQh01patLlw9/scene.splinecode"
       background="transparent"
-      style={{
-        width: '120vw',
-        height: '120vh',
-        position: 'absolute',
-        left: '50%',
-        top: '50%',
-        transform: 'translate(-50%, -50%)',
-        background: 'transparent',
-        pointerEvents: 'none',
-      }}
     />
   );
 };
