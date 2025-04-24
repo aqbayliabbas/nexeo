@@ -73,8 +73,12 @@ export default function Header() {
         transition={{ duration: 0.7, delay: 0.5 }}
         style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 32 }}
       >
-        <button
+        <a
+          href="https://www.nexeo.site/dzairmarket/nexeo?fbclid=PAZXh0bgNhZW0CMTEAAafrsT_VVCakSFZqPqjVyMuwTkA-1Gy3FwmM_anKBXY_VZ3FzKVF3m_ZcQNDnw_aem_YQt7nF_7GlwBM77e0Am8aQ"
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
+            display: 'inline-block',
             background: 'rgba(34,52,110,0.38)',
             color: '#fff',
             fontWeight: 700,
@@ -88,12 +92,14 @@ export default function Header() {
             WebkitBackdropFilter: 'blur(8px)',
             letterSpacing: '0.01em',
             transition: 'background 0.18s, box-shadow 0.18s',
+            textDecoration: 'none',
+            textAlign: 'center',
           }}
           onMouseOver={e => (e.currentTarget.style.background = 'rgba(34,52,110,0.60)')}
           onMouseOut={e => (e.currentTarget.style.background = 'rgba(34,52,110,0.38)')}
         >
           Obtenez votre carte NFC
-        </button>
+        </a>
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 50 }}

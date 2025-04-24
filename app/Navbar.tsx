@@ -170,7 +170,7 @@ export default function Navbar() {
 
         {/* CTA Desktop */}
         <motion.a
-          href="#contact"
+          href="https://nexeo.tech/"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7, duration: 0.3 }}
@@ -187,7 +187,7 @@ export default function Navbar() {
             transition: 'background 0.2s',
             zIndex: 1002,
           }}
-        >Contact</motion.a>
+        >Connexion</motion.a>
       </div>
 
       {/* Mobile Menu Dropdown */}
@@ -195,7 +195,7 @@ export default function Navbar() {
         <a href="#tab1" style={{ color: '#fff', textDecoration: 'none', fontWeight: 600, fontSize: '1.15rem', padding: '0.7rem 0', width: '100%' }} onClick={e => handleMenuClick(e, '#tab1')}>Benifits</a>
         <a href="#tab2" style={{ color: '#fff', textDecoration: 'none', fontWeight: 600, fontSize: '1.15rem', padding: '0.7rem 0', width: '100%' }} onClick={e => handleMenuClick(e, '#tab2')}>Reviews</a>
         <a href="#tab3" style={{ color: '#fff', textDecoration: 'none', fontWeight: 600, fontSize: '1.15rem', padding: '0.7rem 0', width: '100%' }} onClick={e => handleMenuClick(e, '#tab3')}>Products</a>
-        <a href="#contact" style={{ color: '#212121', background: '#fff', borderRadius: '24px', padding: '0.7rem 1.5rem', fontWeight: 700, fontSize: '1.05rem', textDecoration: 'none', marginTop: '1.1rem' }} onClick={() => setMenuOpen(false)}>Contact</a>
+        <a href="https://nexeo.tech/" style={{ color: '#212121', background: '#fff', borderRadius: '24px', padding: '0.7rem 1.5rem', fontWeight: 700, fontSize: '1.05rem', textDecoration: 'none', marginTop: '1.1rem' }} onClick={() => setMenuOpen(false)}>Connexion</a>
       </div>
 
       {/* Responsive CSS with style tag and dropdown animation keyframes */}

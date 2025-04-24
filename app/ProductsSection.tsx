@@ -298,8 +298,12 @@ export default function ProductsSection() {
           ))}
         </ul>
         <div style={{ width: '100%', marginTop: 'auto', display: 'flex', justifyContent: 'center' }}>
-          <button
+          <a
+            href="https://www.nexeo.site/dzairmarket/nexeo?fbclid=PAZXh0bgNhZW0CMTEAAafrsT_VVCakSFZqPqjVyMuwTkA-1Gy3FwmM_anKBXY_VZ3FzKVF3m_ZcQNDnw_aem_YQt7nF_7GlwBM77e0Am8aQ"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
+              display: 'inline-block',
               background: 'linear-gradient(90deg, #1e3c72 0%, #2a5298 100%)',
               color: '#fff',
               fontWeight: 700,
@@ -310,10 +314,12 @@ export default function ProductsSection() {
               cursor: 'pointer',
               marginTop: 12,
               boxShadow: '0 2px 12px 0 rgba(30,60,110,0.13)',
+              textDecoration: 'none',
+              textAlign: 'center',
             }}
           >
             Commander maintenant
-          </button>
+          </a>
         </div>
       </motion.div>
     ))}
