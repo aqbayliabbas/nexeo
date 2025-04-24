@@ -1,56 +1,45 @@
-// Allow custom <spline-viewer> element in TSX
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'spline-viewer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & { url?: string };
-    }
-  }
-}
 
-import React, { useEffect } from 'react';
+
+import React, { useEffect, useRef, useState } from 'react';
+import Spline from '@splinetool/react-spline';
 
 const SplineEmbed = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState<{ width: string; height: string }>({ width: '119vw', height: '119vw' });
+
   useEffect(() => {
-    // Dynamically load the Spline Viewer script only once on mount
-    const scriptId = 'spline-viewer-script';
-    if (!document.getElementById(scriptId)) {
-      const script = document.createElement('script');
-      script.type = 'module';
-      script.src = 'https://unpkg.com/@splinetool/viewer@1.9.85/build/spline-viewer.js';
-      script.id = scriptId;
-      document.body.appendChild(script);
-    }
-    // Inject CSS to hide the Spline logo
-    const styleId = 'hide-spline-logo-style';
-    if (!document.getElementById(styleId)) {
-      const style = document.createElement('style');
-      style.id = styleId;
-      style.innerHTML = `
-        .spline-viewer__logo { display: none !important; }
-        .spline-viewer__built-with, .spline-viewer__branding, [class*='built-with'], .spline-viewer__badge { display: none !important; }
-      `;
-      document.head.appendChild(style);
-    }
+    const updateDimensions = () => {
+      const isTabletOrMobile = window.innerWidth <= 900;
+      setDimensions({
+        width: isTabletOrMobile ? '238vw' : '119vw',
+        height: isTabletOrMobile ? '238vw' : '119vw',
+      });
+    };
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
   return (
-    <spline-viewer
-      ref={(ref: HTMLElement | null) => {
-        if (ref) {
-          const isMobile = window.innerWidth <= 600;
-          ref.style.width = isMobile ? '160vw' : '120vw';
-          ref.style.height = isMobile ? '160vh' : '120vh';
-          ref.style.position = 'absolute';
-          ref.style.left = '50%';
-          ref.style.top = '50%';
-          ref.style.transform = 'translate(-50%, -50%)';
-          ref.style.background = 'transparent';
-          ref.style.pointerEvents = 'none';
-        }
+    <div
+      ref={containerRef}
+      style={{
+        width: dimensions.width,
+        height: dimensions.height,
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        transform: 'translate(-50%, -50%)',
+        background: 'transparent',
+        margin: '32px 0',
+        pointerEvents: 'none', // If you want to keep it non-interactive
       }}
-      url="https://prod.spline.design/mGrwVQh01patLlw9/scene.splinecode"
-      background="transparent"
-    />
+    >
+      <Spline
+        scene="https://prod.spline.design/mGrwVQh01patLlw9/scene.splinecode"
+        style={{ width: '100%', height: '100%', background: 'transparent' }}
+      />
+    </div>
   );
 };
 

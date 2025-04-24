@@ -3,6 +3,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import SplineEmbed from './SplineEmbed';
 
+import Navbar from './Navbar';
+
 export default function Header() {
   return (
     <section style={{
@@ -16,6 +18,7 @@ export default function Header() {
       textAlign: 'center',
       overflow: 'hidden',
     }}>
+      <Navbar />
       {/* Spline 3D background */}
       <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none' }}>
         <SplineEmbed />

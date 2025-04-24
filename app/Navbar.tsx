@@ -25,7 +25,7 @@ export default function Navbar() {
     padding: '0 2rem',
     height: '64px',
     boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
-    background: 'transparent',
+    background: 'rgba(0,0,0,0)', // fully transparent
     backdropFilter: 'blur(12px)',
     WebkitBackdropFilter: 'blur(12px)',
     border: 'none',
@@ -34,6 +34,7 @@ export default function Navbar() {
     position: 'relative',
     zIndex: 1001,
     flexDirection: 'row',
+    gap: '2rem', // reasonable space to keep logo visible
   };
 
   const rightSectionStyle: React.CSSProperties = {
@@ -97,7 +98,7 @@ export default function Navbar() {
     top: '100%',
     left: 0,
     width: '100%',
-    background: 'rgba(30,30,30,0.97)',
+    background: 'rgb(36, 46, 56)', // more transparent
     zIndex: 1500,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
@@ -214,7 +215,7 @@ export default function Navbar() {
             border-radius: 0 0 18px 18px;
           }
           .navbar-logo {
-            margin-right: auto;
+            margin-right: 2rem !important;
           }
           .right-section {
             margin-left: auto;

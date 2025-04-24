@@ -9,7 +9,6 @@ import FooterSection from "./FooterSection";
 export default function Page() {
   return (
     <>
-      <Navbar />
       <div style={{ padding: '0 16px', width: '100%', boxSizing: 'border-box' }}>
         <Header />
         <BrandsSection />
